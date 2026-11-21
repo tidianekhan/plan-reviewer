@@ -2,7 +2,7 @@
 
 ## Time spent
 
-TODO: fill in hours.
+About 1 hour 15 minutes, most of it spent understanding the brief, the contracts and the traps in the sample plans before building.
 
 ## What I did
 
