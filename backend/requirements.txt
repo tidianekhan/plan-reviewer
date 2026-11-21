@@ -3,3 +3,4 @@ uvicorn[standard]
 anthropic
 pytest
 httpx
+ortools>=9.12
