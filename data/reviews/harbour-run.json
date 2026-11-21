@@ -1,0 +1,121 @@
+{
+  "deadline_day": 99,
+  "tasks": [
+    {
+      "id": "T1",
+      "name": "Measure and map the course",
+      "owner": "Dan",
+      "duration_days": 3,
+      "depends_on": [],
+      "quote": "Measure and map the course"
+    },
+    {
+      "id": "T2",
+      "name": "Get the course approved by the council",
+      "owner": "Dan",
+      "duration_days": 7,
+      "depends_on": [
+        "T1",
+        "T3"
+      ],
+      "quote": "Get the course approved by the council"
+    },
+    {
+      "id": "T3",
+      "name": "Take out the event insurance",
+      "owner": "Kerry",
+      "duration_days": 3,
+      "depends_on": [
+        "T2"
+      ],
+      "quote": "Take out the event insurance"
+    },
+    {
+      "id": "T4",
+      "name": "Set up online entries",
+      "owner": "Sam",
+      "duration_days": 2,
+      "depends_on": [],
+      "quote": "Set up online entries"
+    },
+    {
+      "id": "T5",
+      "name": "Order race numbers and timing chips",
+      "owner": "Sam",
+      "duration_days": 10,
+      "depends_on": [
+        "T4"
+      ],
+      "quote": "Order race numbers and timing chips"
+    },
+    {
+      "id": "T6",
+      "name": "Order medals and T-shirts",
+      "owner": "Lucy",
+      "duration_days": 14,
+      "depends_on": [],
+      "quote": "Order medals and T-shirts"
+    },
+    {
+      "id": "T7",
+      "name": "Recruit marshals",
+      "owner": "Lucy",
+      "duration_days": 7,
+      "depends_on": [
+        "T2"
+      ],
+      "quote": "Recruit marshals"
+    },
+    {
+      "id": "T8",
+      "name": "Brief the marshals",
+      "owner": "Dan",
+      "duration_days": 2,
+      "depends_on": [
+        "T7"
+      ],
+      "quote": "Brief the marshals"
+    },
+    {
+      "id": "T9",
+      "name": "Book first aid cover",
+      "owner": "Kerry",
+      "duration_days": 3,
+      "depends_on": [
+        "T2"
+      ],
+      "quote": "Book first aid cover"
+    },
+    {
+      "id": "T10",
+      "name": "Organise the water stations",
+      "owner": "Sam",
+      "duration_days": 4,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Organise the water stations"
+    },
+    {
+      "id": "T11",
+      "name": "Put out posters and the club newsletter",
+      "owner": "Kerry",
+      "duration_days": 5,
+      "depends_on": [
+        "T4"
+      ],
+      "quote": "Put out posters and the club newsletter"
+    },
+    {
+      "id": "T12",
+      "name": "Pack the goody bags and get the finish kit ready",
+      "owner": "Lucy",
+      "duration_days": 3,
+      "depends_on": [
+        "T6"
+      ],
+      "quote": "Pack the goody bags and get the finish kit ready"
+    }
+  ],
+  "findings": []
+}

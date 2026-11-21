@@ -1,0 +1,7 @@
+{"tasks": [
+   {"id": "A", "name": "Book the hall", "owner": "Ann", "duration_days": 3, "depends_on": []},
+   {"id": "B", "name": "Sign the contract", "owner": "Ann", "duration_days": 2, "depends_on": ["A"]},
+   {"id": "C", "name": "Design the poster", "owner": "Ann", "duration_days": 4, "depends_on": []},
+   {"id": "D", "name": "Print the poster", "owner": "Bob", "duration_days": 2, "depends_on": ["C"]}
+ ],
+ "deadline_day": 10}

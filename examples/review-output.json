@@ -1,0 +1,5 @@
+{"deadline_day": 10,
+ "tasks": [{"id": "T1", "name": "Book the hall", "owner": "Ann", "duration_days": 3,
+            "depends_on": [], "quote": "Ann books the hall, which takes three days."}],
+ "findings": [{"title": "No owner for the clean-up", "detail": "Nobody is named for it.",
+               "quote": "Clean-up happens the morning after."}]}

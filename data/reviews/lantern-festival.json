@@ -1,0 +1,227 @@
+{
+  "deadline_day": 45,
+  "tasks": [
+    {
+      "id": "T1",
+      "name": "Agree the route and the site plan with the council",
+      "owner": "Ruth",
+      "duration_days": 5,
+      "depends_on": [],
+      "quote": "Agree the route and the site plan with the council"
+    },
+    {
+      "id": "T2",
+      "name": "Apply for the road closure",
+      "owner": "Ruth",
+      "duration_days": 10,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Apply for the road closure"
+    },
+    {
+      "id": "T3",
+      "name": "Arrange first aid cover",
+      "owner": "Gareth",
+      "duration_days": 4,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Arrange first aid cover"
+    },
+    {
+      "id": "T4",
+      "name": "Write the risk assessment",
+      "owner": "Ruth",
+      "duration_days": 5,
+      "depends_on": [
+        "T1",
+        "T3"
+      ],
+      "quote": "Write the risk assessment"
+    },
+    {
+      "id": "T5",
+      "name": "Arrange the event insurance",
+      "owner": "Ruth",
+      "duration_days": 3,
+      "depends_on": [],
+      "quote": "Arrange the event insurance"
+    },
+    {
+      "id": "T6",
+      "name": "Book the Silver Band and the samba band",
+      "owner": "Ruth",
+      "duration_days": 5,
+      "depends_on": [],
+      "quote": "Book the Silver Band and the samba band"
+    },
+    {
+      "id": "T7",
+      "name": "Book the food stalls",
+      "owner": "Ruth",
+      "duration_days": 7,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Book the food stalls"
+    },
+    {
+      "id": "T8",
+      "name": "Hire the toilets and the crowd barriers",
+      "owner": "Gareth",
+      "duration_days": 3,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Hire the toilets and the crowd barriers"
+    },
+    {
+      "id": "T9",
+      "name": "Arrange extra bins and a litter-pick team for the night",
+      "owner": null,
+      "duration_days": 2,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Arrange extra bins and a litter-pick team for the night"
+    },
+    {
+      "id": "T10",
+      "name": "Recruit stewards",
+      "owner": "Ruth",
+      "duration_days": 7,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Recruit stewards"
+    },
+    {
+      "id": "T11",
+      "name": "Brief the stewards",
+      "owner": "Ruth",
+      "duration_days": 3,
+      "depends_on": [
+        "T10",
+        "T4"
+      ],
+      "quote": "Brief the stewards"
+    },
+    {
+      "id": "T12",
+      "name": "Draw up the volunteer rota",
+      "owner": "Hannah",
+      "duration_days": 3,
+      "depends_on": [
+        "T10"
+      ],
+      "quote": "Draw up the volunteer rota"
+    },
+    {
+      "id": "T13",
+      "name": "Raise sponsorship from local businesses",
+      "owner": "Hannah",
+      "duration_days": 14,
+      "depends_on": [],
+      "quote": "Raise sponsorship from local businesses"
+    },
+    {
+      "id": "T14",
+      "name": "Order the lantern-making materials",
+      "owner": "Priya",
+      "duration_days": 7,
+      "depends_on": [
+        "T13"
+      ],
+      "quote": "Order the lantern-making materials"
+    },
+    {
+      "id": "T15",
+      "name": "Run the lantern-making workshops in both schools",
+      "owner": "Priya",
+      "duration_days": 15,
+      "depends_on": [
+        "T14"
+      ],
+      "quote": "Run lantern-making workshops in both of the schools"
+    },
+    {
+      "id": "T16",
+      "name": "Design the poster and flyer",
+      "owner": "Tom",
+      "duration_days": 5,
+      "depends_on": [
+        "T6"
+      ],
+      "quote": "Design the poster and flyer"
+    },
+    {
+      "id": "T17",
+      "name": "Print the posters and flyers",
+      "owner": "Tom",
+      "duration_days": 4,
+      "depends_on": [
+        "T16",
+        "T2"
+      ],
+      "quote": "Print the posters and flyers"
+    },
+    {
+      "id": "T18",
+      "name": "Put up the posters and deliver the flyers",
+      "owner": "Tom",
+      "duration_days": 6,
+      "depends_on": [
+        "T17"
+      ],
+      "quote": "Put up the posters and deliver the flyers"
+    },
+    {
+      "id": "T19",
+      "name": "Hire the stage lighting and PA",
+      "owner": "Ruth",
+      "duration_days": 3,
+      "depends_on": [
+        "T6"
+      ],
+      "quote": "Once both bands are booked and have sent over what they need, Ruth will also arrange the hire of the stage lighting and a PA system for the green."
+    },
+    {
+      "id": "T20",
+      "name": "Collect and store the finished lanterns",
+      "owner": "Priya",
+      "duration_days": 2,
+      "depends_on": [
+        "T15"
+      ],
+      "quote": "When the workshops finish, Priya will collect the finished lanterns from both schools and store them at the community centre until the evening, which takes her two days."
+    },
+    {
+      "id": "T21",
+      "name": "Build the finale frame",
+      "owner": "Gareth",
+      "duration_days": 8,
+      "depends_on": [
+        "T13"
+      ],
+      "quote": "Gareth will build the frame for the finale in his garage, so it only needs putting up on the green on the evening."
+    },
+    {
+      "id": "T22",
+      "name": "Write the press release and social media posts",
+      "owner": "Tom",
+      "duration_days": 3,
+      "depends_on": [
+        "T16"
+      ],
+      "quote": "Once the poster design is done, Tom will also write the press release for the Pellerby Echo and set up the posts for our social media page, so that everything uses the same artwork."
+    }
+  ],
+  "findings": [
+    {
+      "title": "One task has no owner",
+      "detail": "The task to arrange extra bins and a litter-pick team for the night is marked tbc, so nobody is responsible for it and it may not get done.",
+      "quote": "Arrange extra bins and a litter-pick team for the night"
+    }
+  ]
+}

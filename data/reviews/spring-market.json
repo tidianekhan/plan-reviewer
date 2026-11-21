@@ -1,0 +1,84 @@
+{
+  "deadline_day": 21,
+  "tasks": [
+    {
+      "id": "T1",
+      "name": "Book the main hall and the side room",
+      "owner": "Joan",
+      "duration_days": 2,
+      "depends_on": [],
+      "quote": "Book the main hall and the side room"
+    },
+    {
+      "id": "T2",
+      "name": "Invite stallholders and confirm their pitches",
+      "owner": "Martin",
+      "duration_days": 10,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Invite stallholders and confirm their pitches"
+    },
+    {
+      "id": "T3",
+      "name": "Organise the tea and cake stall",
+      "owner": "Joan",
+      "duration_days": 4,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Organise the tea and cake stall"
+    },
+    {
+      "id": "T4",
+      "name": "Design the poster and flyer",
+      "owner": "Leila",
+      "duration_days": 3,
+      "depends_on": [
+        "T1"
+      ],
+      "quote": "Design the poster and flyer"
+    },
+    {
+      "id": "T5",
+      "name": "Print the posters and put them up around town",
+      "owner": "Leila",
+      "duration_days": 7,
+      "depends_on": [
+        "T4"
+      ],
+      "quote": "Print the posters and put them up around town"
+    },
+    {
+      "id": "T6",
+      "name": "Draw up the floor plan for both rooms",
+      "owner": "Joan",
+      "duration_days": 3,
+      "depends_on": [
+        "T2"
+      ],
+      "quote": "Draw up the floor plan for both rooms"
+    },
+    {
+      "id": "T7",
+      "name": "Hire the extra tables and chairs",
+      "owner": "Martin",
+      "duration_days": 2,
+      "depends_on": [
+        "T6"
+      ],
+      "quote": "Hire the extra tables and chairs"
+    },
+    {
+      "id": "T8",
+      "name": "Set up the volunteer rota for the day",
+      "owner": "Leila",
+      "duration_days": 3,
+      "depends_on": [
+        "T6"
+      ],
+      "quote": "Set up the volunteer rota for the day"
+    }
+  ],
+  "findings": []
+}

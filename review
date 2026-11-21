@@ -1,0 +1,2 @@
+#!/bin/sh
+PYTHONPATH=backend exec .venv/bin/python -m app.review "$@"

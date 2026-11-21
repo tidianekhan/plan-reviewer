@@ -1,0 +1,7 @@
+{"status": "scheduled",
+ "schedule": [
+   {"id": "C", "start_day": 0, "end_day": 4},
+   {"id": "A", "start_day": 4, "end_day": 7},
+   {"id": "B", "start_day": 7, "end_day": 9},
+   {"id": "D", "start_day": 4, "end_day": 6}],
+ "end_day": 9, "deadline_day": 10, "meets_deadline": true, "days_late": 0, "cycle": []}
