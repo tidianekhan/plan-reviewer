@@ -10,6 +10,26 @@ function plural(n: number, word: string) {
   return `${n} ${word}${n === 1 ? '' : 's'}`;
 }
 
+/** One plain sentence on what her edits changed, compared with the review as written. */
+function changeSummary(original: Schedule | null, now: Schedule, deadline: number | null): string {
+  const was = original?.deadline_day ?? null;
+  const deadlineMoved = was !== deadline;
+  const deadlineNote = deadlineMoved
+    ? `Deadline ${was === null ? 'added' : `moved from day ${was}`}${deadline === null ? ', now none' : ` to day ${deadline}`}. `
+    : '';
+  const before = original?.status === 'cycle' ? null : original?.end_day ?? null;
+
+  if (now.status === 'cycle') {
+    return before === null
+      ? `${deadlineNote}It still cannot be scheduled until the circle of tasks is broken in the task list.`
+      : `${deadlineNote}Your changes make some tasks wait on each other in a circle, so it cannot be scheduled.`;
+  }
+  const end = now.end_day ?? 0;
+  if (before === null) return `${deadlineNote}Circle broken: it can now finish on day ${end}.`;
+  if (end !== before) return `${deadlineNote}Earliest finish was day ${before}, now day ${end}.`;
+  return `${deadlineNote}Earliest finish unchanged at day ${end}.`;
+}
+
 export default function App() {
   const [plans, setPlans] = useState<PlanSummary[]>([]);
   const [selectedId, setSelectedId] = useState('');
@@ -268,12 +288,7 @@ function Verdict(props: {
         </label>
         {edited && (
           <span className="changes">
-            <span>
-              Your changes:{' '}
-              {original?.status === 'cycle' ? 'was a circle' : `was day ${original?.end_day}`}
-              {', now '}
-              {schedule.status === 'cycle' ? 'a circle' : `day ${schedule.end_day}`}
-            </span>
+            <span>{changeSummary(original, schedule, deadline)}</span>
             <button className="quiet" onClick={props.onReset}>
               ↺ Back to the review
             </button>
