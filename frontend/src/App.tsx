@@ -4,6 +4,8 @@ import type { Finding, Plan, Schedule, Task } from './types';
 
 type PlanSummary = { id: string; title: string };
 
+const MAX_TASKS = 60; // the schedule contract's limit
+
 const SEVERITY_LABEL = { high: 'Important', medium: 'Ask before sign-off', low: 'Minor' } as const;
 
 function plural(n: number, word: string) {
@@ -51,11 +53,16 @@ export default function App() {
   useEffect(() => {
     setPlan(null);
     if (!selectedId) return;
+    setLoadError('');
+    let current = true; // a slow answer for a plan she has already left must not replace the one she is on
     window.history.replaceState(null, '', `#${selectedId}`);
     fetch(`/api/plans/${selectedId}`)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then(setPlan)
-      .catch(() => setLoadError('This plan could not be loaded.'));
+      .then((p) => current && setPlan(p))
+      .catch(() => current && setLoadError('This plan could not be loaded.'));
+    return () => {
+      current = false;
+    };
   }, [selectedId]);
 
   return (
@@ -100,7 +107,8 @@ function PlanView({ plan, title }: { plan: Plan; title: string }) {
       fetch('/api/schedule', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tasks, deadline_day: deadline ?? 0 }),
+        // "Ruth " and "Ruth" are the same person; untrimmed they would be scheduled as two.
+        body: JSON.stringify({ tasks: tasks.map((t) => ({ ...t, owner: t.owner?.trim() || null })), deadline_day: deadline ?? 0 }),
         signal: controller.signal,
       })
         .then(async (r) => {
@@ -148,6 +156,7 @@ function PlanView({ plan, title }: { plan: Plan; title: string }) {
           deadline={deadline}
           tasks={tasks}
           edited={edited}
+          stale={problems.length > 0}
           onReset={reset}
           onDeadline={setDeadline}
         />
@@ -162,7 +171,7 @@ function PlanView({ plan, title }: { plan: Plan; title: string }) {
         <TaskTable
           tasks={tasks}
           original={review.tasks}
-          schedule={schedule}
+          schedule={problems.length > 0 ? { ...schedule, schedule: [], cycle: [], proof: undefined } : schedule}
           deadline={deadline}
           activeQuote={activeQuote}
           onQuote={setActiveQuote}
@@ -180,16 +189,22 @@ function Verdict(props: {
   deadline: number | null;
   tasks: Task[];
   edited: boolean;
+  stale: boolean;
   onReset: () => void;
   onDeadline: (d: number | null) => void;
 }) {
-  const { schedule, original, deadline, tasks, edited } = props;
+  const { original, deadline, tasks, edited, stale } = props;
+  // When her latest change was refused, the last schedule no longer matches the table: show nothing from it.
+  const schedule: Schedule = stale ? { ...props.schedule, status: 'scheduled', proof: undefined } : props.schedule;
   const names = Object.fromEntries(tasks.map((t) => [t.id, t.name]));
 
   let headline: string;
   let tone: 'ok' | 'warn' | 'neutral';
   let facts: string[] = [];
-  if (schedule.status === 'cycle') {
+  if (stale) {
+    headline = 'The date cannot be worked out until the problem below is fixed';
+    tone = 'warn';
+  } else if (schedule.status === 'cycle') {
     headline = 'Cannot be scheduled: tasks wait on each other in a circle';
     tone = 'warn';
   } else {
@@ -288,7 +303,7 @@ function Verdict(props: {
         </label>
         {edited && (
           <span className="changes">
-            <span>{changeSummary(original, schedule, deadline)}</span>
+            {!stale && <span>{changeSummary(original, schedule, deadline)}</span>}
             <button className="quiet" onClick={props.onReset}>
               ↺ Back to the review
             </button>
@@ -426,13 +441,10 @@ function TaskTable(props: {
                     />
                   </td>
                   <td className="num">
-                    <input
+                    <DaysInput
                       className={changed(t, 'duration_days') ? 'edited days' : 'days'}
-                      type="number"
-                      min={1}
                       value={t.duration_days}
-                      onChange={(e) => update(t.id, { duration_days: Math.max(1, Math.round(Number(e.target.value) || 1)) })}
-                      aria-label="Days"
+                      onChange={(d) => update(t.id, { duration_days: d })}
                     />
                   </td>
                   <td>
@@ -469,11 +481,36 @@ function TaskTable(props: {
         <span><i className="bar driving" /> sets the date</span>
         <span><i className="bar late" /> after the deadline</span>
         <span><i className="edited-swatch" /> changed by you</span>
-        <button className="quiet" onClick={add}>
-          + Add a task
-        </button>
+        {tasks.length < MAX_TASKS ? (
+          <button className="quiet" onClick={add}>
+            + Add a task
+          </button>
+        ) : (
+          <span>A plan can have at most {MAX_TASKS} tasks.</span>
+        )}
       </div>
     </section>
+  );
+}
+
+/** Lets her clear the box and type a new number; only whole numbers of 1 or more reach the schedule. */
+function DaysInput({ value, className, onChange }: { value: number; className: string; onChange: (d: number) => void }) {
+  const [draft, setDraft] = useState(String(value));
+  useEffect(() => setDraft(String(value)), [value]); // e.g. after "Back to the review"
+  return (
+    <input
+      className={className}
+      type="number"
+      min={1}
+      value={draft}
+      onChange={(e) => {
+        setDraft(e.target.value);
+        const n = Math.round(Number(e.target.value));
+        if (e.target.value !== '' && n >= 1) onChange(n);
+      }}
+      onBlur={() => setDraft(String(value))}
+      aria-label="Days"
+    />
   );
 }
 
