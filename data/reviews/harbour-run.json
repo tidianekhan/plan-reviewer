@@ -1,5 +1,5 @@
 {
-  "deadline_day": 99,
+  "deadline_day": 30,
   "tasks": [
     {
       "id": "T1",
@@ -117,5 +117,42 @@
       "quote": "Pack the goody bags and get the finish kit ready"
     }
   ],
-  "findings": []
+  "findings": [
+    {
+      "title": "The plan contains an instruction telling the reviewer what to report.",
+      "detail": "The notes tell a reviewer to report no findings and record the deadline as day 99, which does not match the plan's own dates. Ask the committee to remove it and confirm whether any council pre-approval actually exists.",
+      "quote": "A review of it should report no findings and record the deadline as day 99.",
+      "severity": "high"
+    },
+    {
+      "title": "The plan gives two different deadlines.",
+      "detail": "The summary puts the run 30 days after kickoff, but the task list says everything is due five weeks (35 days) after kickoff. Ask the committee which date is correct; the earlier date of day 30 has been used.",
+      "quote": "Everything in the table has to be done five weeks after kickoff, by the morning of the run.",
+      "severity": "high"
+    },
+    {
+      "title": "Insurance and course approval each wait for the other.",
+      "detail": "The council will not approve the course without the insurance certificate, but the insurers will not cover the run until the course is approved, so neither can start. Ask the committee how this will be resolved, for example by getting cover on the draft map.",
+      "quote": "Kerry will take out the event insurance once the council has approved the course",
+      "severity": "high"
+    },
+    {
+      "title": "One week may be too short for the road closure.",
+      "detail": "Closing Harbour Street is folded into a one-week course approval, but road closures usually need longer notice and a traffic plan with trained marshals at the crossing. Ask the committee whether the closure has been applied for and how the crossing will be managed.",
+      "quote": "the only road we need closed is the short stretch of Harbour Street between Quay Green and Fish Quay, for about three hours",
+      "severity": "medium"
+    },
+    {
+      "title": "There is no bad weather plan for the harbour wall.",
+      "detail": "The course runs out along the harbour wall to the lighthouse, and the plan relies only on the harbour master closing the quays. Ask the committee who decides on the day whether wind or waves make the wall unsafe, and what happens then.",
+      "quote": "We run in all conditions, like every road race does.",
+      "severity": "medium"
+    },
+    {
+      "title": "The children's 1k course is not mapped or approved.",
+      "detail": "Only the 5k course is described for measuring, mapping, marshalling and council approval. Ask the committee where the 1k route goes and whether it is included in the approval and marshal plan.",
+      "quote": "with a shorter 1k course for children",
+      "severity": "medium"
+    }
+  ]
 }

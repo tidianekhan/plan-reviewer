@@ -13,7 +13,7 @@
       "id": "T2",
       "name": "Apply for the road closure",
       "owner": "Ruth",
-      "duration_days": 10,
+      "duration_days": 14,
       "depends_on": [
         "T1"
       ],
@@ -45,7 +45,9 @@
       "name": "Arrange the event insurance",
       "owner": "Ruth",
       "duration_days": 3,
-      "depends_on": [],
+      "depends_on": [
+        "T4"
+      ],
       "quote": "Arrange the event insurance"
     },
     {
@@ -143,7 +145,7 @@
       "depends_on": [
         "T14"
       ],
-      "quote": "Run lantern-making workshops in both of the schools"
+      "quote": "Run the lantern-making workshops in both schools"
     },
     {
       "id": "T16",
@@ -178,13 +180,13 @@
     },
     {
       "id": "T19",
-      "name": "Hire the stage lighting and PA",
+      "name": "Arrange the hire of the stage lighting and a PA system",
       "owner": "Ruth",
       "duration_days": 3,
       "depends_on": [
         "T6"
       ],
-      "quote": "Once both bands are booked and have sent over what they need, Ruth will also arrange the hire of the stage lighting and a PA system for the green."
+      "quote": "Ruth will also arrange the hire of the stage lighting and a PA system for the green"
     },
     {
       "id": "T20",
@@ -194,34 +196,77 @@
       "depends_on": [
         "T15"
       ],
-      "quote": "When the workshops finish, Priya will collect the finished lanterns from both schools and store them at the community centre until the evening, which takes her two days."
+      "quote": "Priya will collect the finished lanterns from both schools and store them at the community centre until the evening, which takes her two days"
     },
     {
       "id": "T21",
-      "name": "Build the finale frame",
+      "name": "Build the frame for the finale",
       "owner": "Gareth",
       "duration_days": 8,
       "depends_on": [
         "T13"
       ],
-      "quote": "Gareth will build the frame for the finale in his garage, so it only needs putting up on the green on the evening."
+      "quote": "Gareth will build the frame for the finale in his garage"
     },
     {
       "id": "T22",
-      "name": "Write the press release and social media posts",
+      "name": "Write the press release and set up the social media posts",
       "owner": "Tom",
       "duration_days": 3,
       "depends_on": [
         "T16"
       ],
-      "quote": "Once the poster design is done, Tom will also write the press release for the Pellerby Echo and set up the posts for our social media page, so that everything uses the same artwork."
+      "quote": "Tom will also write the press release for the Pellerby Echo and set up the posts for our social media page"
     }
   ],
   "findings": [
     {
-      "title": "One task has no owner",
-      "detail": "The task to arrange extra bins and a litter-pick team for the night is marked tbc, so nobody is responsible for it and it may not get done.",
-      "quote": "Arrange extra bins and a litter-pick team for the night"
+      "title": "Ruth is carrying more work than fits before the festival.",
+      "detail": "Ruth owns nine tasks adding up to about 52 days of work, more than the 45 days available, including all permissions, bookings, the risk assessment, insurance and stewards. Ask the committee to share some of these tasks with other members.",
+      "quote": "Ruth Marsh, our chair, has very kindly agreed to look after the permissions and the bookings again.",
+      "severity": "high"
+    },
+    {
+      "title": "Printing waits for road closure approval, which has no time allowed.",
+      "detail": "The prose says the printers cannot have the poster until the closure is approved, which the table does not show, and \"about two weeks\" only covers the application, not the council's decision. Ask how long approval takes and whether the poster can go to print without waiting for it.",
+      "quote": "The printers cannot have the poster until the road closure has been approved",
+      "severity": "high"
+    },
+    {
+      "title": "The risk assessment needs first aid cover confirmed first.",
+      "detail": "The table shows the risk assessment starting straight after the site plan, but the prose says it waits for Gareth to confirm first aid cover. Ask the committee to add this link to the task list.",
+      "quote": "Ruth will write the risk assessment once Gareth has confirmed the first aid cover",
+      "severity": "medium"
+    },
+    {
+      "title": "Insurance cannot start until the risk assessment is finished.",
+      "detail": "The table shows insurance with nothing needed first, but the broker would not quote last year without the finished risk assessment. Ask the committee to correct the task list and confirm the broker's turnaround time.",
+      "quote": "so Ruth will do the insurance after that",
+      "severity": "medium"
+    },
+    {
+      "title": "Several tasks in the notes are missing from the task list.",
+      "detail": "Stage lighting and PA hire, collecting and storing the lanterns, building the finale frame and the press release and social media posts appear only in the notes. Ask the committee to add them to the task list with owners and durations.",
+      "quote": "Once both bands are booked and have sent over what they need, Ruth will also arrange the hire of the stage lighting and a PA system for the green.",
+      "severity": "medium"
+    },
+    {
+      "title": "Nobody owns the bins and litter-pick task.",
+      "detail": "The task is marked tbc and the notes only say the committee expects to ask the waste team again; the litter-pick team is not mentioned. Ask who will arrange the bins and recruit the litter-pick team.",
+      "quote": "Last year the council's waste team lent us extra bins for the green, and we expect to ask for the same again.",
+      "severity": "medium"
+    },
+    {
+      "title": "Lanterns and the frame depend on sponsorship that is not yet secured.",
+      "detail": "Materials and timber cannot be bought until sponsorship money is in, and the £2,500 target is only hoped for. Ask what happens if sponsorship is late or short, and whether the £500 grant could be used to order earlier.",
+      "quote": "we cannot order the lantern-making materials until that money is in",
+      "severity": "medium"
+    },
+    {
+      "title": "First aid cover is not confirmed for a bigger crowd.",
+      "detail": "The plan aims for more than last year's 800 people but gives no expected numbers, and first aid is based on last year's two volunteers, who have only said they would be happy to come. Ask for an expected crowd size and confirmation that first aid cover matches it.",
+      "quote": "Last year they sent two volunteers and a first aid tent, and they have said they would be happy to come again.",
+      "severity": "medium"
     }
   ]
 }

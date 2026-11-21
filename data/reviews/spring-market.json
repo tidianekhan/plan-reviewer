@@ -80,5 +80,30 @@
       "quote": "Set up the volunteer rota for the day"
     }
   ],
-  "findings": []
+  "findings": [
+    {
+      "title": "Food safety and allergen information for the cake stall is not covered.",
+      "detail": "Home-baked cakes are being sold to the public, but the plan says nothing about food hygiene or allergen labelling. Ask how bakers will be briefed and how allergen information will be shown on the stall.",
+      "quote": "Joan will sort out the urns, the rota of bakers and the float.",
+      "severity": "medium"
+    },
+    {
+      "title": "No safeguarding arrangements for the children's corner.",
+      "detail": "Volunteers will be looking after children in the children's corner, but there is no mention of supervision rules or safeguarding checks. Ask who is responsible and what arrangements are in place.",
+      "quote": "helpers at the door, on the tea and cake stall and in the children's corner, in two-hour shifts",
+      "severity": "medium"
+    },
+    {
+      "title": "Public liability insurance is not mentioned.",
+      "detail": "The plan does not say whether the Friends or the stallholders hold public liability insurance for the market. Ask for confirmation of cover before sign-off.",
+      "quote": null,
+      "severity": "medium"
+    },
+    {
+      "title": "Extra furniture from the community centre is not confirmed.",
+      "detail": "The plan relies on hiring extra tables and chairs from the community centre, but does not say they are available on the day; this is left until late in the schedule. Ask whether the community centre has confirmed availability, and suggest reserving them early.",
+      "quote": "Martin will hire the extra tables and chairs from the community centre to match the floor plan.",
+      "severity": "low"
+    }
+  ]
 }
