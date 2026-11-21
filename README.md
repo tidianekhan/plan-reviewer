@@ -39,14 +39,35 @@ cd backend && ../.venv/bin/uvicorn app.main:app --port 8000
 .venv/bin/pytest backend/tests
 ```
 
-To review a plan with a model, set `ANTHROPIC_API_KEY`, and optionally `REVIEW_MODEL`, then run:
+The scheduler uses Google OR-Tools (`ortools` in `backend/requirements.txt`). `make setup` installs it from a prebuilt wheel, which needs 64-bit Python 3.11 or newer; nothing else needs installing.
+
+To review a plan with a model, put your key in a `.env` file in this folder (it is gitignored):
 
 ```sh
-mkdir -p out
-./review data/plans/spring-market.md out/spring-market.json
+ANTHROPIC_API_KEY=sk-ant-...
+# REVIEW_MODEL=claude-opus-5-5   optional, this is the default
 ```
 
-The `Dockerfile` builds one container that serves the page and the API on `$PORT`, 8000 by default.
+Then load it and run the review:
+
+```sh
+set -a; . ./.env; set +a
+mkdir -p out
+./review data/plans/spring-market.md out/spring-market.json
+python3 check_contract.py review out/spring-market.json
+```
+
+`./review` exits with status 1 and writes nothing when it cannot produce a review it trusts. The page and the API never call the model; they read the stored reviews, so `make run` needs no key.
+
+The `Dockerfile` builds one container that serves the page and the API on `$PORT`, 8000 by default:
+
+```sh
+docker build -t plan-reviewer .
+docker run -e PORT=8000 -p 8000:8000 plan-reviewer
+python3 check_contract.py schedule http://localhost:8000
+```
+
+Deployed at https://plan-reviewer-production.up.railway.app (Railway, built from the `Dockerfile`).
 
 ## What we ask
 
